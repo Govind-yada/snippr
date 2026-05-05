@@ -1,8 +1,6 @@
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:10000";
 
 export async function shortenUrl({ url, customSlug, expiryInMinutes }) {
-  //   const body = { originalUrl: url };
-  //   if (expiryInMinutes) body.expiryInMinutes = parseInt(expiryInMinutes, 10);
   const body = { originalUrl: url };
   if (customSlug?.trim()) body.customSlug = customSlug.trim();
   if (expiryInMinutes) body.expiryInMinutes = parseInt(expiryInMinutes, 10);
@@ -24,18 +22,11 @@ export async function shortenUrl({ url, customSlug, expiryInMinutes }) {
   return data;
 }
 
-// export async function fetchAllUrls() {
-//   return [];
-// }
 export async function fetchAllUrls() {
   const res = await fetch(`${API_BASE}/urls`);
   if (!res.ok) throw new Error("Failed to fetch URLs");
   return await res.json();
 }
-
-// export async function deleteUrl(shortCode) {
-//   throw new Error("Delete not supported by backend");
-// }
 
 export async function fetchUrlStats(shortCode) {
   const res = await fetch(`${API_BASE}/analytics/${shortCode}`);
