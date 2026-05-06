@@ -1,4 +1,5 @@
-export const API_BASE = "";
+// export const API_BASE = "";
+export const API_BASE = "https://snippr-07xq.onrender.com";
 
 export const NAV_TABS = [
   { id: "shorten", label: "Shorten" },
